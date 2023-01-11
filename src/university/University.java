@@ -1,7 +1,7 @@
 package university;
 
 import lib.MyAbstractList;
-import lib.array.MyArrayList;
+import lib.linked.list.MyLinkedList;
 
 
 /**
@@ -14,8 +14,8 @@ public class University {
 
 	private String name;
 	private Rector rector;
-	private MyAbstractList students = new MyArrayList();
-	private MyAbstractList courses = new MyArrayList();
+	private MyAbstractList students = new MyLinkedList();
+	private MyAbstractList courses = new MyLinkedList();
 
 	/**
 	 * Constructor

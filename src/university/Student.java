@@ -1,14 +1,14 @@
 package university;
 
 import lib.MyAbstractList;
-import lib.array.MyArrayList;
+import lib.linked.list.MyLinkedList;
 
 public class Student {
     private int id;
     private String firstName;
     private String lastName;
 
-    private MyAbstractList courses = new MyArrayList();
+    private MyAbstractList courses = new MyLinkedList();
 
     public Student(int id, String firstName, String lastName) {
         this.id = id;
