@@ -1,32 +1,32 @@
 package lib.array;
 
-import university.Course;
+import lib.MyAbstractList;
 
-public class CourseArrayList {
+public class MyArrayList extends MyAbstractList {
     public static final int DEFAULT_CAPACITY = 10;
-    private Course[] elements;
+    private Object[] elements;
     private int size;
 
-    public CourseArrayList() {
+    public MyArrayList() {
         this(DEFAULT_CAPACITY);
     }
-    public CourseArrayList(int capacity) {
-        elements = new Course[capacity];
+    public MyArrayList(int capacity) {
+        elements = new Object[capacity];
         size = 0;
     }
 
-    public void add(Course teacher) {
+    public void add(Object element) {
         if (size >= elements.length) {
-            Course[] temp = new Course[elements.length * 2];
+            Object[] temp = new Object[elements.length * 2];
             for (int i = 0; i < elements.length; i++) {
                 temp[i] = elements[i];
             }
             elements = temp;
         }
-        elements[size++] = teacher;
+        elements[size++] = element;
     }
 
-    public Course get(int index) {
+    public Object get(int index) {
         if (index < 0 || index >= size) {
             System.err.println("Error: IndexOutOfBoundException");
             return null;
@@ -36,10 +36,6 @@ public class CourseArrayList {
 
     public int size() {
         return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
     }
 
 }

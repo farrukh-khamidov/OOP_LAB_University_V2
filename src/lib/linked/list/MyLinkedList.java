@@ -1,18 +1,18 @@
 package lib.linked.list;
 
-import university.Student;
+import lib.MyAbstractList;
 
-public class StudentLinkedList {
-    private StudentNode head;
-    private StudentNode tail;
+public class MyLinkedList extends MyAbstractList {
+    private Node head;
+    private Node tail;
     private int size;
 
-    public StudentLinkedList() {
+    public MyLinkedList() {
         size = 0;
     }
 
-    public void add(Student element) {
-        StudentNode node = new StudentNode(element);
+    public void add(Object element) {
+        Node node = new Node(element);
         if (head == null && tail == null) {
             head = tail = node;
         } else {
@@ -22,12 +22,12 @@ public class StudentLinkedList {
         size++;
     }
 
-    public Student get(int index) {
+    public Object get(int index) {
         if (index < 0 || index >= size) {
             System.err.println("Error: IndexOutOfBoundException");
             return null;
         }
-        StudentNode current = head;
+        Node current = head;
         for (int i = 0; i < index; i++) {
             current = current.getNext();
         }
@@ -37,10 +37,6 @@ public class StudentLinkedList {
 
     public int size() {
         return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
     }
 
 }

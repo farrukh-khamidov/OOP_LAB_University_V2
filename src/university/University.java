@@ -1,8 +1,8 @@
 package university;
 
-import lib.array.CourseArrayList;
-import lib.array.StudentArrayList;
-import lib.linked.list.StudentLinkedList;
+import lib.MyAbstractList;
+import lib.array.MyArrayList;
+
 
 /**
  * This class represents a university education system.
@@ -14,8 +14,8 @@ public class University {
 
 	private String name;
 	private Rector rector;
-	private StudentLinkedList students = new StudentLinkedList();
-	private CourseArrayList courses = new CourseArrayList();
+	private MyAbstractList students = new MyArrayList();
+	private MyAbstractList courses = new MyArrayList();
 
 	/**
 	 * Constructor
@@ -72,7 +72,7 @@ public class University {
 	 * @return information about the student
 	 */
 	public String student(int id){
-		Student student = students.get(id - 10000);
+		Student student = (Student) students.get(id - 10000);
 		return student.toString();
 	}
 	
@@ -96,7 +96,7 @@ public class University {
 	 * @return information about the course
 	 */
 	public String course(int code){
-		Course course = courses.get(code - 10);
+		Course course = (Course)courses.get(code - 10);
 		return course.toString();
 	}
 	
@@ -106,8 +106,8 @@ public class University {
 	 * @param courseCode id of the course
 	 */
 	public void register(int studentID, int courseCode){
-		Student student = students.get(studentID - 10000);
-		Course course = courses.get(courseCode - 10);
+		Student student = (Student)students.get(studentID - 10000);
+		Course course = (Course)courses.get(courseCode - 10);
 		student.addCourse(course);
 	}
 	
@@ -118,7 +118,7 @@ public class University {
 	 * @return list of attendees separated by "\n"
 	 */
 	public String listAttendees(int courseCode){
-		Course course = courses.get(courseCode - 10);
+		Course course = (Course)courses.get(courseCode - 10);
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < course.getStudentCount(); i++) {
 			sb.append(course.getStudents().get(i).toString()).append("\n");
@@ -133,7 +133,7 @@ public class University {
 	 * @return list of courses the student is registered for
 	 */
 	public String studyPlan(int studentID){
-		Student student = students.get(studentID - 10000);
+		Student student = (Student)students.get(studentID - 10000);
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < student.getCourseCount(); i++) {
 			sb.append(student.getCourses().get(i).toString()).append("\n");

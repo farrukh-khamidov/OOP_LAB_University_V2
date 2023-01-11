@@ -1,13 +1,14 @@
 package university;
 
-import lib.array.CourseArrayList;
+import lib.MyAbstractList;
+import lib.array.MyArrayList;
 
 public class Student {
     private int id;
     private String firstName;
     private String lastName;
 
-    private CourseArrayList courses = new CourseArrayList();
+    private MyAbstractList courses = new MyArrayList();
 
     public Student(int id, String firstName, String lastName) {
         this.id = id;
@@ -32,7 +33,7 @@ public class Student {
         course.addStudent(this);
     }
 
-    public CourseArrayList getCourses() {
+    public MyAbstractList getCourses() {
         return courses;
     }
 
