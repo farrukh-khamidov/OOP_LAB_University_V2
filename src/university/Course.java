@@ -1,12 +1,13 @@
 package university;
 
+import lib.array.StudentArrayList;
+
 public class Course {
     private int code;
     private String title;
     private String teacher;
 
-    private Student[] students = new Student[100];
-    private int studentCount = 0;
+    private StudentArrayList students = new StudentArrayList();
 
     public Course(int code, String title, String teacher) {
         this.code = code;
@@ -14,12 +15,12 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public Student[] getStudents() {
+    public StudentArrayList getStudents() {
         return students;
     }
 
     public int getStudentCount() {
-        return studentCount;
+        return students.size();
     }
 
     public int getCode() {
@@ -35,7 +36,7 @@ public class Course {
     }
 
     public void addStudent(Student student) {
-        students[studentCount++] = student;
+        students.add(student);
     }
 
     @Override

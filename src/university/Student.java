@@ -1,12 +1,13 @@
 package university;
 
+import lib.array.CourseArrayList;
+
 public class Student {
     private int id;
     private String firstName;
     private String lastName;
 
-    private Course[] courses = new Course[25];
-    private int courseCount = 0;
+    private CourseArrayList courses = new CourseArrayList();
 
     public Student(int id, String firstName, String lastName) {
         this.id = id;
@@ -27,16 +28,16 @@ public class Student {
     }
 
     public void addCourse(Course course) {
-        courses[courseCount++] = course;
+        courses.add(course);
         course.addStudent(this);
     }
 
-    public Course[] getCourses() {
+    public CourseArrayList getCourses() {
         return courses;
     }
 
     public int getCourseCount() {
-        return courseCount;
+        return courses.size();
     }
 
     @Override
